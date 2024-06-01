@@ -2,9 +2,11 @@ import dotenv from "dotenv";
 import { httpServer } from "./app.js";
 import connectDB from "./db/index.js";
 
-dotenv.config({
-  path: "./.env",
-});
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({
+    path: "./.env",
+  });
+}
 
 /**
  * Starting from Node.js v14 top-level await is available and it is only available in ES modules.
